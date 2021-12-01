@@ -1,6 +1,6 @@
 package com.example.exampleprojectdi.controllers;
 
-import com.example.exampleprojectdi.services.PetServiceDefault;
+import com.springframework.pets.PetServiceDefault;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 

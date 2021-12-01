@@ -1,6 +1,6 @@
 package com.example.exampleprojectdi.controllers;
 
-import com.example.exampleprojectdi.services.CatPetService;
+import com.springframework.pets.CatPetService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

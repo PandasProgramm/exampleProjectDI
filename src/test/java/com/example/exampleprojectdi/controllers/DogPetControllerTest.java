@@ -1,10 +1,8 @@
 package com.example.exampleprojectdi.controllers;
 
-import com.example.exampleprojectdi.services.DogPetService;
+import com.springframework.pets.DogPetService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DogPetControllerTest {
 

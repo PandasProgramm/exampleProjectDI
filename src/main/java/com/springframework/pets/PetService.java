@@ -1,4 +1,4 @@
-package com.example.exampleprojectdi.services;
+package com.springframework.pets;
 
 public interface PetService {
 

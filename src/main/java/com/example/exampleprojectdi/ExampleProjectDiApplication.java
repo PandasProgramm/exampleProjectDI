@@ -1,19 +1,17 @@
 package com.example.exampleprojectdi;
 
 import com.example.exampleprojectdi.controllers.*;
-import com.example.exampleprojectdi.services.CatPetService;
-import com.example.exampleprojectdi.services.DogPetService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
-import java.sql.SQLOutput;
-
+@ComponentScan(basePackages = { "com.example.exampleprojectdi", "com.springframework.pets"})
 @SpringBootApplication
 public class ExampleProjectDiApplication {
 
     public static void main(String[] args) {
-       ApplicationContext ctx =  SpringApplication.run(ExampleProjectDiApplication.class, args);
+        ApplicationContext ctx =  SpringApplication.run(ExampleProjectDiApplication.class, args);
         MyController myController = (MyController) ctx.getBean("myController");
         String greeting = myController.sayHello();
         System.out.println(greeting);
