@@ -9,7 +9,7 @@ public class CatPetController {
 
     private final PetService petService;
 
-    public CatPetController(@Qualifier("catPetService") PetService petService) {
+    public CatPetController(@Qualifier("factoryPetServiceImpl") PetService petService) {
         this.petService = petService;
     }
 

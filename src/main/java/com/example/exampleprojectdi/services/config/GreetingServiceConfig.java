@@ -3,6 +3,8 @@ package com.example.exampleprojectdi.services.config;
 import com.example.exampleprojectdi.repository.EnglishGreetingRepository;
 import com.example.exampleprojectdi.repository.EnglishGreetingRepositoryImpl;
 import com.example.exampleprojectdi.services.*;
+import com.springframework.pets.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -15,6 +17,12 @@ public class GreetingServiceConfig {
     EnglishGreetingRepository englishGreetingRepository() {
         return new EnglishGreetingRepositoryImpl();
     }
+    @Bean("factoryPetServiceImpl")
+    PetService catPetService(){
+        return PetServiceFactory.getInstance(new CatProvider());
+    }
+    @Bean("dogPetServiceImpl")
+    PetService dogPetService() { return PetServiceFactory.getInstance(new DogProvider()); }
 
     @Bean
     ConstructorGreetingService constructorGreetingService() {

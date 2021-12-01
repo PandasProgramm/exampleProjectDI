@@ -9,7 +9,7 @@ public class DogPetController {
 
     private final PetService dogPetService;
 
-    public DogPetController(@Qualifier("dogPetService") PetService dogPetService) {
+    public DogPetController(@Qualifier("dogPetServiceImpl") PetService dogPetService) {
         this.dogPetService = dogPetService;
     }
 

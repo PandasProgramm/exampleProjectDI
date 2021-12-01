@@ -1,6 +1,6 @@
 package com.example.exampleprojectdi.controllers;
 
-import com.springframework.pets.DogPetService;
+import com.springframework.pets.DogPetServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ class DogPetControllerTest {
     DogPetController dogPetController;
     @BeforeEach
     void setUp() {
-        this.dogPetController = new DogPetController(new DogPetService());
+        this.dogPetController = new DogPetController(new DogPetServiceImpl());
     }
 
     @Test
