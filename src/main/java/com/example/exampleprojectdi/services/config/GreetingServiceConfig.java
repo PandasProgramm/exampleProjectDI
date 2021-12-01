@@ -1,16 +1,20 @@
 package com.example.exampleprojectdi.services.config;
 
+import com.example.exampleprojectdi.repository.EnglishGreetingRepository;
+import com.example.exampleprojectdi.repository.EnglishGreetingRepositoryImpl;
 import com.example.exampleprojectdi.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
-
-import java.util.Objects;
 
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    EnglishGreetingRepository englishGreetingRepository() {
+        return new EnglishGreetingRepositoryImpl();
+    }
 
     @Bean
     ConstructorGreetingService constructorGreetingService() {
@@ -35,8 +39,8 @@ public class GreetingServiceConfig {
 
     @Bean("i18nService")
     @Profile({"EN","default"})
-    I18nEnglishService i18nEnglishService() {
-        return new I18nEnglishService();
+    I18nEnglishService i18nEnglishService(EnglishGreetingRepository repository) {
+        return new I18nEnglishService(repository);
     }
 
     @Bean("i18nService")
