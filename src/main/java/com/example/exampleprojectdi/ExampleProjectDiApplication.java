@@ -1,6 +1,8 @@
 package com.example.exampleprojectdi;
 
 import com.example.exampleprojectdi.controllers.*;
+import com.example.exampleprojectdi.services.PrototypBean;
+import com.example.exampleprojectdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -36,6 +38,16 @@ public class ExampleProjectDiApplication {
         System.out.println("##Dog##");
         DogPetController dogPetController = (DogPetController)ctx.getBean("dogPetController");
         System.out.println(dogPetController.whichPetIsTheBest());
+
+        System.out.println("<<<<< Bean Scope >>>>>>");
+        SingletonBean singletonBean = ctx.getBean(SingletonBean.class);
+        System.out.println(singletonBean.getMyScope());
+        SingletonBean singletonBean2 = ctx.getBean(SingletonBean.class);
+        System.out.println(singletonBean2.getMyScope());
+        PrototypBean prototypBean = ctx.getBean(PrototypBean.class);
+        System.out.println(prototypBean.getMyScope());
+        PrototypBean prototypBean2 = ctx.getBean(PrototypBean.class);
+        System.out.println(prototypBean2.getMyScope());
 
     }
 
